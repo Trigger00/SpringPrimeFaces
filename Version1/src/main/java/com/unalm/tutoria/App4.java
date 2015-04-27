@@ -83,10 +83,10 @@ App4.doUpdate(cntx);
 		StockDailyRecord1 stockDailyRecord = dao.findByCodigo(11800L);
 		Stock stock = new Stock();
 		stock.setStockId(2);
-		stockDailyRecord.setPriceChange(666);
-		stockDailyRecord.setPriceClose(666);
-		stockDailyRecord.setPriceOpen(666);
-		stockDailyRecord.setVolume(666);
+		stockDailyRecord.setPriceChange(69);
+		stockDailyRecord.setPriceClose(69);
+		stockDailyRecord.setPriceOpen(69);
+		stockDailyRecord.setVolume(69);
 		stockDailyRecord.setStock(stock);;
 		dao.update(stockDailyRecord);
 	}
