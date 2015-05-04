@@ -18,31 +18,43 @@ import javax.persistence.Table;
 public class CoordConsejeriaEntity implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name="CO_COORD_CONSEJERIA",unique = true, nullable = false)
-	private String id;
-	
-	@Column(name = "ESP_CODIGO")
-	private String espCodigo;
-	
-	@JoinColumn(name = "pro_codigo", referencedColumnName = "pro_codigo")
+	@JoinColumn(name = "pro_codigo")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private  Profesor profesor;
 	
+
+	
+	@Column(name = "ESP_CODIGO")
+	private String espCodigo;
+
 	
 	@Column(name = "TPROFE")
 	private String tProfe;
 	
 	@Column(name = "CICLO")
 	private String ciclo;
-
-	public String getId() {
-		return id;
+	
+	public CoordConsejeriaEntity() {
+		super();
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public CoordConsejeriaEntity(Profesor profesor) {
+		super();
+		this.profesor = profesor;
 	}
+
+	public CoordConsejeriaEntity( String espCodigo,
+			Profesor profesor, String tProfe, String ciclo) {
+		super();
+
+		this.espCodigo = espCodigo;
+		this.profesor = profesor;
+		this.tProfe = tProfe;
+		this.ciclo = ciclo;
+	}
+
+
+
 
 	public String getEspCodigo() {
 		return espCodigo;

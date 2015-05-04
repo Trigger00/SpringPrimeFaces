@@ -1,5 +1,7 @@
 package com.unalm.tutoria.model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,62 +17,87 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="profesor")
-public class Profesor implements Serializable{
+@Table(name = "profesor", catalog = "oficina")
+public class Profesor implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "pro_codigo")
 	private String pro_codigo;
-	
+
 	@Column(name = "pro_paterno")
 	private String pro_paterno;
-	
+
 	@Column(name = "pro_materno")
 	private String pro_materno;
-	
+
 	@Column(name = "pro_nom")
 	private String pro_nom;
-	
+
 	@Column(name = "pro_nombre")
 	private String pro_nombre;
-	
+
 	@Column(name = "sexo")
 	private String sexo;
-	
+
 	@Column(name = "dep_codigo")
 	private String dep_codigo;
-	
+
 	@Column(name = "ubigeo")
 	private String ubigeo;
-	
+
 	@Column(name = "direccion")
 	private String direccion;
-	
-	
+
 	@Column(name = "telefono")
 	private String telefono;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "activo")
 	private String activo;
-	
+
 	@Column(name = "email_unalm")
 	private String email_unalm;
 
 	@Column(name = "perso")
 	private Long perso;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "profesor")
 	private Set<ConsejeriaEntity> consejeroEntity = new HashSet<ConsejeriaEntity>(
 			0);
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "profesor")
-	private Set<CoordConsejeriaEntity> coordConsejeria = new HashSet<CoordConsejeriaEntity>(0);
+	private Set<CoordConsejeriaEntity> coordConsejeriaEntity = new HashSet<CoordConsejeriaEntity>(
+			0);
 
 	public Profesor() {
 		super();
+	}
+
+	public Profesor(String pro_codigo, String pro_paterno, String pro_materno,
+			String pro_nom, String pro_nombre, String sexo, String dep_codigo,
+			String ubigeo, String direccion, String telefono, String email,
+			String activo, String email_unalm, Long perso,
+			Set<ConsejeriaEntity> consejeroEntity,
+			Set<CoordConsejeriaEntity> coordConsejeriaEntity) {
+		super();
+		this.pro_codigo = pro_codigo;
+		this.pro_paterno = pro_paterno;
+		this.pro_materno = pro_materno;
+		this.pro_nom = pro_nom;
+		this.pro_nombre = pro_nombre;
+		this.sexo = sexo;
+		this.dep_codigo = dep_codigo;
+		this.ubigeo = ubigeo;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.email = email;
+		this.activo = activo;
+		this.email_unalm = email_unalm;
+		this.perso = perso;
+		this.consejeroEntity = consejeroEntity;
+		this.coordConsejeriaEntity = coordConsejeriaEntity;
 	}
 
 	public String getPro_codigo() {
@@ -193,14 +220,13 @@ public class Profesor implements Serializable{
 		this.consejeroEntity = consejeroEntity;
 	}
 
-	public Set<CoordConsejeriaEntity> getCoordConsejeria() {
-		return coordConsejeria;
+	public Set<CoordConsejeriaEntity> getCoordConsejeriaEntity() {
+		return coordConsejeriaEntity;
 	}
 
-	public void setCoordConsejeria(Set<CoordConsejeriaEntity> coordConsejeria) {
-		this.coordConsejeria = coordConsejeria;
+	public void setCoordConsejeriaEntity(
+			Set<CoordConsejeriaEntity> coordConsejeriaEntity) {
+		this.coordConsejeriaEntity = coordConsejeriaEntity;
 	}
-	
-	
-	
+
 }

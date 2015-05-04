@@ -1,5 +1,7 @@
 package com.unalm.tutoria.model;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +19,7 @@ import javax.persistence.Table;
 public class AlumnosEntity implements Serializable {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "matricula")
 	private String matricula;
 
@@ -75,6 +77,38 @@ public class AlumnosEntity implements Serializable {
 	
 
 	
+	public AlumnosEntity() {
+		super();
+	}
+
+	public AlumnosEntity(String matricula, String pro_codigo,
+			String fac_codigo, String esp_codigo, String situacion,
+			String alu_nombre, String esp_grad, String ciclo_ult,
+			String ciclo_r, String email, String curricula, String perso,
+			String usuario, String fecha, String cambio_curricula,
+			String fl_no_censado, String convenio,
+			Set<ConsejeriaEntity> consejeria) {
+		super();
+		this.matricula = matricula;
+		this.pro_codigo = pro_codigo;
+		this.fac_codigo = fac_codigo;
+		this.esp_codigo = esp_codigo;
+		this.situacion = situacion;
+		this.alu_nombre = alu_nombre;
+		this.esp_grad = esp_grad;
+		this.ciclo_ult = ciclo_ult;
+		this.ciclo_r = ciclo_r;
+		this.email = email;
+		this.curricula = curricula;
+		this.perso = perso;
+		this.usuario = usuario;
+		this.fecha = fecha;
+		this.cambio_curricula = cambio_curricula;
+		this.fl_no_censado = fl_no_censado;
+		this.convenio = convenio;
+		this.consejeria = consejeria;
+	}
+
 	public String getMatricula() {
 		return matricula;
 	}

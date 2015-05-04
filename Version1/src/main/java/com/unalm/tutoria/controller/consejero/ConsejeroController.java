@@ -43,7 +43,9 @@ public class ConsejeroController {
 	public String index(Model model) {
 		List<ConsejeriaEntity> consejeros = service.allConsejero();
 		consejeriaEntity = consejeros;
-		System.out.println("YA SALE "+consejeriaEntity.get(0).getCiclo());
+		System.out.println("YA SALE "+" ---- "+consejeriaEntity.get(0).getCiclo());
+				
+				//+" - "+consejeriaEntity.get(0).getProfesor().getPro_codigo());
 		model.addAttribute("consejeros", consejeros);
 		return "consejero/index";
 		

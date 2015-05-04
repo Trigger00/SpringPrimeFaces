@@ -11,7 +11,7 @@ import com.unalm.tutoria.model.ConsejeriaEntity;
 
 
 @Service
-@Transactional
+//@Transactional
 public class ConsejeroServiceImp  implements ConsejeroService{
 
 	@Autowired
