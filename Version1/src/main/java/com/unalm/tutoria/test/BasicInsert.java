@@ -28,21 +28,21 @@ public class BasicInsert implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@ManagedProperty(value = "#{consejero1}")
 	private ConsejeroNcstServiceImp consejero1;
-	 String matricula;
+	private String matricula;
+	private ConsejeroNcstEntity conseje;
 
 	public void save() {
 		System.out.println("ENTRO AL itemMB");
 		ConsejeroNcstEntity consejeria = new ConsejeroNcstEntity();
 		consejeria.setMatricula(getMatricula());
-		System.out.println("EL VALOR DE MATRICULA ES: "+ consejeria.getMatricula());
-		consejero1.guardarConsejero(consejeria);
+		System.out.println("EL VALOR DE MATRICULA ES: "
+				+ consejeria.getMatricula());
+		consejero1.guardarConsejero(this.conseje);
 	}
 
 	public BasicInsert() {
-		super();
+		conseje =new ConsejeroNcstEntity();
 	}
-
-
 
 	public ConsejeroNcstServiceImp getConsejero1() {
 		return consejero1;
@@ -59,5 +59,16 @@ public class BasicInsert implements Serializable {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
+
+	public ConsejeroNcstEntity getConseje() {
+		return conseje;
+	}
+
+	public void setConseje(ConsejeroNcstEntity conseje) {
+		this.conseje = conseje;
+	}
+	
+	
+	
 
 }
