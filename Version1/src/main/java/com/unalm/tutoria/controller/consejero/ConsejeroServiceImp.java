@@ -10,8 +10,12 @@ import com.unalm.tutoria.dao.ConsejeroDAO;
 import com.unalm.tutoria.model.ConsejeriaEntity;
 
 
-@Service
+//@Service
 //@Transactional
+
+
+//@Transactional(readOnly = true)
+@Service("ConsejeroService")
 public class ConsejeroServiceImp  implements ConsejeroService{
 
 	@Autowired
@@ -20,6 +24,15 @@ public class ConsejeroServiceImp  implements ConsejeroService{
 	public List<ConsejeriaEntity> allConsejero() {
 		return consejeroDAO.list();
 	}
-	
+/*
+	public void guardarConsejero(ConsejeriaEntity consejero) {
+        if(consejero.getAlumnos().getMatricula() == null){
+        	consejeroDAO.save(consejero);
+        }else{
+        	consejeroDAO.update(consejero);
+        }
+		
+	}
+	*/
 
 }
