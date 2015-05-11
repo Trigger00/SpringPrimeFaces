@@ -13,7 +13,6 @@ import com.unalm.tutoria.controller.consejeroNcst.ConsejeroNcstServiceImp;
 import com.unalm.tutoria.model.ConsejeriaEntity;
 import com.unalm.tutoria.model.ConsejeroNcstEntity;
 
-
 @ManagedBean(name = "itemMB1")
 @RequestScoped
 public class BasicDelete implements Serializable {
@@ -22,23 +21,32 @@ public class BasicDelete implements Serializable {
 	private ConsejeroNcstServiceImp consejero1;
 	List<ConsejeroNcstEntity> cars;
 	ConsejeroNcstEntity beanSelected;
-	
+
 	public BasicDelete() {
-		beanSelected =new ConsejeroNcstEntity();
-		//cars = new ArrayList<ConsejeroNcstEntity>();
-		
+		beanSelected = new ConsejeroNcstEntity();
+		// cars = new ArrayList<ConsejeroNcstEntity>();
+
 	}
 
 	
+	public void update(){
+	System.out.println("ENTRO EN EL METODO UPDATE");
+	System.out.println("EL VALOR ES:" + " - "
+			+ this.beanSelected.getMatricula() +" - "
+			+ this.beanSelected.getCiclo());
+	consejero1.guardarConsejero(this.beanSelected);
+	
+	}
 	
 	public void delete() {
 		System.out.println("ENTRO AL METODO DELETE");
-		
-System.out.println("EL VALOR ES:"+ " - "+ this.beanSelected.getMatricula());
+
+		System.out.println("EL VALOR ES:" + " - "
+				+ this.beanSelected.getMatricula());
 		String matricula = this.beanSelected.getMatricula();
-		Long id =Long.valueOf(matricula).longValue();
+		Long id = Long.valueOf(matricula).longValue();
 		consejero1.deleteConsejeroNcst(id);
-			
+
 	}
 
 	public List<ConsejeroNcstEntity> getCars() {
@@ -46,12 +54,13 @@ System.out.println("EL VALOR ES:"+ " - "+ this.beanSelected.getMatricula());
 		// App negocio = new App();
 		// List<ConsejeriaEntity> listado = negocio.createCars();
 		List<ConsejeroNcstEntity> listado = consejero1.allConsejeroNcst();
-		//System.out.println(listado.size());
+		// System.out.println(listado.size());
 
 		cars = listado;
-		/*System.out.println("QUIE LLORAR CARAJOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
-				+ cars);
-		*/ return cars;
+		/*
+		 * System.out.println("QUIE LLORAR CARAJOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" +
+		 * cars);
+		 */return cars;
 
 	}
 
@@ -74,7 +83,5 @@ System.out.println("EL VALOR ES:"+ " - "+ this.beanSelected.getMatricula());
 	public void setBeanSelected(ConsejeroNcstEntity beanSelected) {
 		this.beanSelected = beanSelected;
 	}
-
-
 
 }

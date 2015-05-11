@@ -25,8 +25,11 @@ public class ConsejeroNcstDAOH extends BaseHibernateDAO implements
 	}
 
 	public ConsejeroNcstEntity get(Long t) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = this.getSession().createCriteria(
+				ConsejeroNcstEntity.class);
+		criteria.add(Restrictions.eq("matricula", t));
+
+		return (ConsejeroNcstEntity) criteria.uniqueResult();
 	}
 
 	@Transactional
