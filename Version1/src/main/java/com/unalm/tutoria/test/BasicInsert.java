@@ -44,6 +44,8 @@ public class BasicInsert implements Serializable {
 		conseje =new ConsejeroNcstEntity();
 	}
 
+	
+	
 	public ConsejeroNcstServiceImp getConsejero1() {
 		return consejero1;
 	}

@@ -1,5 +1,7 @@
 package com.unalm.tutoria.controller.consejeroNcst;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,16 @@ public class ConsejeroNcstServiceImp implements ConsejeroNcstService {
 		System.out.println("ENTRO PARA GUARDAR");
 		consejeroNcstDAO.save(consejeroNcst);
 
+	}
+
+	public List<ConsejeroNcstEntity> allConsejeroNcst() {
+		 
+		return consejeroNcstDAO.list();
+	}
+
+	public void deleteConsejeroNcst(Long id) {
+		consejeroNcstDAO.delete(id);
+		
 	}
 
 }

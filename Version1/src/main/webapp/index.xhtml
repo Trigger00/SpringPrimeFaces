@@ -10,60 +10,76 @@
 		type="text/javascript"></script>
 </h:head>
 <h:body>
-	<h:form id="form1" style="">
-		<p:growl id="messages" showDetail="true" />
+
+	<h:form id="form1">
+		<p:growl id="messages" showDetail="true" life="3000" />
+		<p:dataTable id="objects" var="car" value="#{itemMB1.cars}"
+			rowKey="#{car.matricula}">
+
+			<p:column headerText="Id">
+				<h:outputText value="#{car.matricula}" />
+			</p:column>
+
+			<p:column headerText="Product" sortBy="#{car.matricula}"
+				filterBy="#{car.matricula}" filterMatchMode="contains">
+				<h:outputText value="#{car.matricula}" />
+			</p:column>
+	<p:column headerText="Ciclo" sortBy="#{car.ciclo}"
+				filterBy="#{car.ciclo}" filterMatchMode="contains">
+				<h:outputText value="#{car.ciclo}" />
+			</p:column>
 
 
-		<p:panel id="panel">
-			<br />
+			<p:column headerText="Delete" style="width:8%">
+				<p:commandLink update=":form1:display"
+					oncomplete="PF('confirmDeleteDlg').show()"
+					image="ui-icon ui-icon-close" title="Delete">
+					<f:setPropertyActionListener value="#{car}"
+						target="#{itemMB1.beanSelected}" />
+					<h:outputText styleClass="ui-icon ui-icon-close" />
+				</p:commandLink>
+			</p:column>
+		</p:dataTable>
 
 
+		<p:dialog header="Remove" widgetVar="confirmDeleteDlg"
+			resizable="false" width="400" height="60" showEffect="clip"
+			hideEffect="clip" modal="true">
 
-			<h:panelGrid id="display" columns="2" cellpadding="4">
+			<p:outputPanel layout="block" style="text-align:center">
+				<p:commandButton value="Yes" update=":form1:messages,:form1:objects"
+					actionListener="#{itemMB1.delete}"
+					oncomplete="PF('confirmDeleteDlg').hide()" />
+				<p:commandButton value="No" onclick="PF('confirmDeleteDlg').hide()"
+					type="button" />
+			</p:outputPanel>
 
-				<h:outputText value="Matricula" for="matricula"
+		</p:dialog>
+
+
+		<p:dialog header="Update" widgetVar="detailsDlg" resizable="false"
+			width="750" height="400" showEffect="clip" hideEffect="clip"
+			modal="true">
+
+			<h:panelGrid id="display" columns="2" cellpadding="4"
+				style="margin:0 auto;">
+
+
+				<h:outputText value="ciclo"
 					style="padding-left: 30px; padding-right: 30px;" />
 
-			<!--
-			<p:inputText id="matricula" value="#{itemMB.matricula}"
-					label="Matricula" />
--->
-<p:inputText id="matricula" value="#{itemMB.conseje.matricula}"
-					label="Matricula" />
-					
-					
-					
-					
-					
-					
-					
-					
-					
-								<h:outputText value="Ciclo" for="ciclo"
-								style="padding-left: 30px; padding-right: 30px;" />
+				<p:inputText value="#{itemMB1.beanSelected.matricula}" />
+				
+				
+				<h:outputText value="ciclo"
+					style="padding-left: 30px; padding-right: 30px;" />
 
-							<p:inputText id="ciclo" value="#{itemMB.conseje.ciclo}"
-								required="true" label="ciclo"
-								requiredMessage="Required" />
-					
-					
-					
-					
-					
-			<p:outputPanel layout="block" style="text-align:center">
-					<br />
-					<br />
-		
-					<p:commandButton value="Save" styleClass=""
-						actionListener="#{itemMB.save}"
-					 />
-				</p:outputPanel>
-			
+				<p:inputText value="#{itemMB1.beanSelected.ciclo}" />
 
 			</h:panelGrid>
 
-		</p:panel>
-
+		</p:dialog>
 	</h:form>
+
 </h:body>
 </html>

@@ -18,9 +18,9 @@ public class App3 {
 		ApplicationContext cntx = new ClassPathXmlApplicationContext("app.xml");
 		
 		//App3.doSave(cntx);
-		//App3.doDelete(cntx);
-		App3.doUpdate(cntx);
-		App3.doList(cntx);
+		App3.doDelete(cntx);
+		//App3.doUpdate(cntx);
+		//App3.doList(cntx);
 		
 	}
 
