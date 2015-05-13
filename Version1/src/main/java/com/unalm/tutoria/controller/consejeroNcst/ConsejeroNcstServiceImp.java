@@ -36,7 +36,7 @@ public class ConsejeroNcstServiceImp implements ConsejeroNcstService {
 	}
 
 	public ConsejeroNcstEntity findConsejeroNcst(Long id) {
-		return consejeroNcstDAO.get(id);
+		return consejeroNcstDAO.findByCodigo(id);
 	}
 
 }
