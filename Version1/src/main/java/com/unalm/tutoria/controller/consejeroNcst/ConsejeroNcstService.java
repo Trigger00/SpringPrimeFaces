@@ -10,6 +10,7 @@ public interface ConsejeroNcstService {
 	ConsejeroNcstEntity findConsejeroNcst(Long id);
 
 	void guardarConsejero(ConsejeroNcstEntity consejeroNcst);
+	void guardarConsejero2(ConsejeroNcstEntity[] consejeroNcst);
 
 	void deleteConsejeroNcst(Long id);
 }

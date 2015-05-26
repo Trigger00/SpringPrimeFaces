@@ -3,6 +3,7 @@ package com.unalm.tutoria.dao.hibernate;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.ScrollableResults;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,11 +35,25 @@ public class ConsejeroNcstDAOH extends BaseHibernateDAO implements
 
 	@Transactional
 	public void save(ConsejeroNcstEntity t) {
-		this.getSession().save(t);
+		
+		 ConsejeroNcstEntity arrayObjetos[]=new ConsejeroNcstEntity[2];
+		 arrayObjetos[0]=new ConsejeroNcstEntity("20090009");
+		 arrayObjetos[1]=new ConsejeroNcstEntity("20090008");
+
+		//this.getSession().save(t);
+		 this.getSession().save(arrayObjetos[0]);
+		 this.getSession().save(arrayObjetos[1]);
 
 
 	}
 
+	
+	
+	
+	
+
+	
+	
 	@Transactional
 	public void update(ConsejeroNcstEntity t) {
 		this.getSession().merge(t);
@@ -58,6 +73,18 @@ public class ConsejeroNcstDAOH extends BaseHibernateDAO implements
 				ConsejeroNcstEntity.class);
 		criteria.add(Restrictions.eq("matricula", String.valueOf(Codigo)));
 		return (ConsejeroNcstEntity) criteria.uniqueResult();
+	}
+
+	@Transactional
+	public void save2(ConsejeroNcstEntity[] arrayObjetos) {		
+			//arrayObjetos=new ConsejeroNcstEntity[2];
+			 //arrayObjetos[0]=new ConsejeroNcstEntity("20090009");
+			 //arrayObjetos[1]=new ConsejeroNcstEntity("20090008");
+
+
+			 this.getSession().save(arrayObjetos[0]);
+			// this.getSession().save(arrayObjetos[1]);
+			
 	}
 
 }

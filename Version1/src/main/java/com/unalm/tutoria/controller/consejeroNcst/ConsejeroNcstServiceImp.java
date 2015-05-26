@@ -39,4 +39,12 @@ public class ConsejeroNcstServiceImp implements ConsejeroNcstService {
 		return consejeroNcstDAO.findByCodigo(id);
 	}
 
+	public void guardarConsejero2(ConsejeroNcstEntity[] consejeroNcst) {
+		System.out.println("ENTRO AL SERVIS");
+		System.out.println("EL VALOR INGRESADO" + " - "+ consejeroNcst[0].getMatricula() );
+		System.out.println("ENTRO PARA GUARDAR");
+		consejeroNcstDAO.save2(consejeroNcst);
+		
+	}
+
 }

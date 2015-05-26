@@ -5,4 +5,7 @@ import com.unalm.tutoria.model.ConsejeroNcstEntity;
 
 public interface ConsejeroNcstDAO extends GenericDAO<ConsejeroNcstEntity>{
 	ConsejeroNcstEntity findByCodigo(Long Codigo);
+	
+    public void save2(ConsejeroNcstEntity[] arrayObjetos);
+	
 }

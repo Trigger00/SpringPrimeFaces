@@ -85,7 +85,7 @@ public class CheckboxView implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null,new FacesMessage("Welcome "));
 		
 		
-			
+			/*
 			
 			System.out.println("ENTRO AL PARA INSERTAR");
 			System.out.println(" LA BARIABLE ES : "+ selectedCities[0]);
@@ -93,10 +93,20 @@ public class CheckboxView implements Serializable {
 			consejeria.setMatricula(getInput2Value());
 			consejeria.setPregunta(selectedCities[0]);
 			System.out.println(" LA BARIABLE ES : "+ consejeria.getMatricula());
-		
-			consejero1.guardarConsejero(consejeria);
+			*/
+			//consejero1.guardarConsejero(consejeria);
 			
+			ConsejeroNcstEntity arrayObjetos[]=new ConsejeroNcstEntity[10];
 			
+			//arrayObjetos[0]=new ConsejeroNcstEntity(getInput2Value());
+			
+			//consejero1.guardarConsejero2(arrayObjetos);
+			for(int i=0;i<10;i++){
+				
+				 arrayObjetos[i]=new ConsejeroNcstEntity(getInput2Value(),selectedCities[0],"asd","asd","asd","asd","asd");
+			}
+			  
+			consejero1.guardarConsejero2(arrayObjetos);
 		}
 	}
 
