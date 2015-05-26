@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+	<style type="text/css" media="screen">
+.ui-panelgrid td,.ui-panelgrid tr {
+	border-style: none !important
+}
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel id="panel" header="New User">
+
+
+			<p:messages id="msgs" />
+			<p>Select fruit from the given list :</p>
+			<h:selectManyCheckbox id="chkbox1"
+				value="#{checkboxView.selectedCities}" 
+			
+			    
+				layout="pageDirection">
+				<f:selectItems value="#{checkboxView.cities}" />
+			</h:selectManyCheckbox>
+			
+			
+			
+			
+			<p:panelGrid columns="2">
+				<h:selectBooleanCheckbox id="checkboxId"
+					value="#{checkboxView.input1Value}" requiredMessage="ni me elegistes">
+					<p:ajax event="change" update="panelId" />
+			
+				</h:selectBooleanCheckbox>
+
+				<h:panelGrid id="panelId">
+			Otros<h:outputLabel rendered="#{checkboxView.input1Value}">
+						<p:inputText id="txtHI" />
+					</h:outputLabel>
+				</h:panelGrid>
+			</p:panelGrid>
+
+			<!-- <p:message for="chkbox1" style="color:red"/>-->1
+
+			
+			
+	
+			<br />
+			<br />
+			<p:commandButton value="Save" update="panel"
+				actionListener="#{checkboxView.save}" icon="ui-icon-check" />
+
+
+
+
+
+		</p:panel>
+	</h:form>
+
+
+
+	<h:form>
+		<p:panelGrid columns="2">
+			<h:selectBooleanCheckbox id="checkboxId"
+				value="#{checkboxView.input1Value}">
+				<p:ajax event="change" update="panelId" />
+			</h:selectBooleanCheckbox>
+
+			<h:panelGrid id="panelId">
+			Otros<h:outputLabel rendered="#{checkboxView.input1Value}">
+					<p:inputText id="txtHI" />
+				</h:outputLabel>
+			</h:panelGrid>
+		</p:panelGrid>
+	</h:form>
+
+
+
+
+
+
+</h:body>
+</html>
