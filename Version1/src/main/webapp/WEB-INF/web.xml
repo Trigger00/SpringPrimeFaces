@@ -13,7 +13,6 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-  
  
   	<!-- Change to "Production" when you are ready to deploy -->
 	<context-param>
@@ -43,12 +42,7 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
- 
- 
- 
- 
- 
- 
+
  	<!-- nuevo -->
    <servlet>
         <servlet-name>action</servlet-name>
@@ -64,25 +58,13 @@
         <servlet-name>action</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
 
- 
-	
- 
- 
- 
- 
- 
- 
  
 	<!-- Map these files with JSF -->
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-	
-
-	
 	
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
@@ -96,5 +78,5 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
- 
+
 </web-app>

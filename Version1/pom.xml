@@ -38,7 +38,29 @@
 			<artifactId>jsf-impl</artifactId>
 			<version>2.1.11</version>
 		</dependency>
-
+		
+		
+  <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.1.0.Final</version>
+    </dependency>
+    <dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-validator</artifactId>
+   <version>5.1.3.Final</version>
+</dependency>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -70,6 +92,36 @@
 			<artifactId>el-ri</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+		<!-- SECURITY -->
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<artifactId>spring-security-acl</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<type>jar</type>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+
 
 
 		<!-- JDBC -->
@@ -124,6 +176,8 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.6.10.Final</version>
 		</dependency>
+
+
 	</dependencies>
 	<build>
 		<plugins>

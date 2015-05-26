@@ -20,8 +20,8 @@ public class ConsejeroNcstServiceImp implements ConsejeroNcstService {
 		System.out.println("ENTRO AL SERVIS");
 		System.out.println("EL VALOR INGRESADO" + " - "+ consejeroNcst.getMatricula() );
 		System.out.println("ENTRO PARA GUARDAR");
-		//consejeroNcstDAO.save(consejeroNcst);
-		consejeroNcstDAO.update(consejeroNcst);
+		consejeroNcstDAO.save(consejeroNcst);
+		//consejeroNcstDAO.update(consejeroNcst);
 
 	}
 

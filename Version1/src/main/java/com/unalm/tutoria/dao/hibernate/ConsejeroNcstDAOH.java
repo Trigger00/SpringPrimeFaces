@@ -36,6 +36,7 @@ public class ConsejeroNcstDAOH extends BaseHibernateDAO implements
 	public void save(ConsejeroNcstEntity t) {
 		this.getSession().save(t);
 
+
 	}
 
 	@Transactional

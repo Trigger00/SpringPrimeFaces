@@ -3,51 +3,63 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:head>
-	<script src="http://maps.google.com/maps/api/js?sensor=true"
-		type="text/javascript"></script>
+
+
+	<style type="text/css" media="screen">
+.ui-panelgrid td,.ui-panelgrid tr {
+	border-style: none !important
+}
+}
+</style>
 </h:head>
 <h:body>
-	<h:form id="form" style="">
-		<p:growl id="messages" showDetail="true" />
-		<p:panel id="panel">
+	<h:form>
+		<p:panel id="panel" header="New User">
+
+
+			<p:messages id="msgs" />
+			<p>Select fruit from the given list :</p>
+			<h:selectManyCheckbox id="chkbox1"
+				value="#{checkboxView.selectedCities}" 
+				layout="pageDirection">
+				<f:selectItems value="#{checkboxView.cities}" />
+			</h:selectManyCheckbox>
+			
+			
+			
+			
+			<p:panelGrid columns="5">
+				<h:selectBooleanCheckbox id="checkboxId"
+					value="#{checkboxView.input1Value}" requiredMessage="ni me elegistes">
+				<f:selectItems value="#{checkboxView.input2Value}" />
+				</h:selectBooleanCheckbox>
+
+		
+		
+						<p:inputText  value="#{checkboxView.input2Value}" label="Name" />		
+			
+		
+			</p:panelGrid>
+
+			<!-- <p:message for="chkbox1" style="color:red"/>-->
+
+		
+            <!--<h:outputLabel for="name" value="Name: (@Size(max=2))" />
+            <p:inputText id="name" value="#{checkboxView.input2Value}" label="Name"/>
+            <p:message for="name" />
+            <h:outputText value="#{checkboxView.input2Value}" />-->
+			
+	
 			<br />
-			<h:panelGrid id="display" columns="2" cellpadding="4">
-
-				<h:outputText value="Matricula" for="matricula"
-					style="padding-left: 30px; padding-right: 30px;" />
-				<p:inputText id="matricula"
-					value="#{itemMB2.beanSelected.matricula}" label="Matricula" />
-
-
-				<p:outputPanel layout="block" style="text-align:center">
-					<br />
-					<br />
-
-					<p:commandButton value="Save" styleClass=""
-						actionListener="#{itemMB2.find}" />
-					<p:commandButton process="@parent:@parent" update="@form"
-						value="Process: @parent:parent (Form)"
-						actionListener="#{itemMB2.find}" />
-
-				</p:outputPanel>
-
-
-			</h:panelGrid>
+			<br />
+			<p:commandButton value="Save" update="panel"
+				actionListener="#{checkboxView.save}" icon="ui-icon-check" />
+				
+				   <p:commandButton value="Save2" ajax="false" icon="ui-icon-check" validateClient="true"/>
 
 		</p:panel>
-
-		<h:outputLabel value="value = 10" rendered="#{itemMB2.msj == null}" />
-		<p:panel rendered="#{itemMB2.msj == null}">
-DALEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-</p:panel>
-
-		<c:if test="${itemMB2.msj == null}">
-do things here ...
-</c:if>
 	</h:form>
 </h:body>
 </html>
